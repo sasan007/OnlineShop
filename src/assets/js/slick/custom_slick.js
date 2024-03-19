@@ -223,7 +223,6 @@ $('.slider-3-product').slick({
     infinite: true,
     slidesToScroll: 1,
     slidesToShow: 3,
-    arrows: false,
     centerMode: true,
     centerPadding: '160px',
     dots: true,
@@ -279,8 +278,6 @@ $('.slider-3_1').slick({
                 autoplay: true,
                 autoplaySpeed: 3500,
                 dots: true,
-                autoplay: true,
-                autoplaySpeed: 2800,
             }
         },
         {
@@ -307,8 +304,6 @@ $('.slider-3_2').slick({
                 autoplay: true,
                 autoplaySpeed: 3500,
                 dots: true,
-                autoplay: true,
-                autoplaySpeed: 2800,
             }
         },
         {
@@ -351,8 +346,6 @@ $('.slider-3_3').slick({
                 autoplay: true,
                 autoplaySpeed: 3500,
                 dots: true,
-                autoplay: true,
-                autoplaySpeed: 2800,
             }
         },
         {

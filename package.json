@@ -2,6 +2,8 @@
   "name": "store",
   "version": "0.0.0",
   "scripts": {
+    "gc": "ng generate component $1 && git add .",
+    "gm": "ng generate module $1 && git add .",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

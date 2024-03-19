@@ -13,8 +13,7 @@
 	font-style: normal;
 	font-weight: bold;
 	src: url('../fonts/eot/IRANSansWeb(FaNum)_Medium.eot');
-	src: url('../fonts/eot/IRANSansWeb(FaNum)_Medium.emot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-		 url('../fonts/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+	src: url('../fonts/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
 		 url('../fonts/woff/IRANSansWeb(FaNum)_Medium.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 		 url('../fonts/ttf/IRANSansWeb(FaNum)_Medium.ttf') format('truetype');
 }
@@ -89,7 +88,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-ExtraLight.woff2') format('woff2');
@@ -97,7 +96,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-Light.woff2') format('woff2');
@@ -105,7 +104,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-Regular.woff2') format('woff2');
@@ -113,7 +112,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-Medium.woff2') format('woff2');
@@ -121,7 +120,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-SemiBold.woff2') format('woff2');
@@ -129,7 +128,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-Bold.woff2') format('woff2');
@@ -137,7 +136,7 @@
 	font-style: normal;
 	font-display: swap;
 }
-  
+
 @font-face {
 	font-family: Vazir;
 	src: url('../fonts/vazir/Vazirmatn-ExtraBold.woff2') format('woff2');
