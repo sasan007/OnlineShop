@@ -41,22 +41,7 @@
             ],
             "scripts": [
               "src/assets/js/jquery-3.6.0.min.js",
-              "src/assets/js/jquery-ui.min.js",
-              "src/assets/js/bootstrap/bootstrap.bundle.min.js",
-              "src/assets/js/bootstrap/bootstrap-notify.min.js",
-              "src/assets/js/bootstrap/popper.min.js",
-              "src/assets/js/feather/feather.min.js",
-              "src/assets/js/feather/feather-icon.js",
-              "src/assets/js/lazysizes.min.js",
-              "src/assets/js/slick/slick.js",
-              "src/assets/js/slick/slick-animation.min.js",
-              "src/assets/js/slick/custom_slick.js",
-              "src/assets/js/auto-height.js",
-              "src/assets/js/fly-cart.js",
-              "src/assets/js/quantity-2.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/js/custom-wow.js",
-              "src/assets/js/script.js"
+              "src/assets/js/jquery-ui.min.js"
             ]
           },
           "configurations": {
