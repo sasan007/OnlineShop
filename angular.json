@@ -25,7 +25,6 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
               "src/assets/css/vendors/bootstrap.css",
               "src/assets/css/vendors/bootstrap.rtl.css",
               "src/assets/css/animate.min.css",
@@ -40,8 +39,6 @@
               "src/assets/css/font.css"
             ],
             "scripts": [
-              "src/assets/js/jquery-3.6.0.min.js",
-              "src/assets/js/jquery-ui.min.js"
             ]
           },
           "configurations": {

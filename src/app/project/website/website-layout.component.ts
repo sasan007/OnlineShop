@@ -1,18 +1,21 @@
-import {Component, Renderer2} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-website-layout',
   standalone: true,
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    NgIf
   ],
   templateUrl: './website-layout.component.html',
   styleUrl: './website-layout.component.css'
 })
-export class WebsiteLayoutComponent {
-
-  jsFiles: string[] = ['../../assets/js/jquery-3.6.0.min.js',
+export class WebsiteLayoutComponent implements AfterViewInit {
+  @ViewChild('loader') loader!: ElementRef;
+  jsFiles: string[] = [
+    '../../assets/js/jquery-3.6.0.min.js',
     '../../assets/js/jquery-ui.min.js',
     '../../assets/js/bootstrap/bootstrap.bundle.min.js',
     '../../assets/js/bootstrap/bootstrap-notify.min.js',
@@ -31,7 +34,9 @@ export class WebsiteLayoutComponent {
     '../../assets/js/custom-wow.js',
     '../../assets/js/script.js',
     '../../assets/js/theme-setting.js'];
-  loadScript(index:number) {
+  isLoaderShow: any = true;
+
+  loadScript(index: number) {
     if (index < this.jsFiles.length) {
       const script = this.renderer.createElement('script');
       script.src = this.jsFiles[index];
@@ -47,9 +52,9 @@ export class WebsiteLayoutComponent {
   constructor(private renderer: Renderer2) {
 
   }
+
   ngAfterViewInit(): void {
     this.loadScript(0);
+    this.isLoaderShow = false;
   }
 }
-
-
