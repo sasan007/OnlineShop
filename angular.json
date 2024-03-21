@@ -25,18 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/vendors/bootstrap.css",
-              "src/assets/css/vendors/bootstrap.rtl.css",
-              "src/assets/css/animate.min.css",
-              "src/assets/css/vendors/font-awesome.css",
-              "src/assets/css/vendors/feather-icon.css",
-              "src/assets/css/vendors/slick/slick.css",
-              "src/assets/css/vendors/slick/slick-theme.css",
-              "src/assets/css/bulk-style.css",
-              "src/assets/css/vendors/animate.css",
-              "src/assets/css/style.css",
-              "src/assets/css/custom.css",
-              "src/assets/css/font.css"
+              
             ],
             "scripts": [
             ]

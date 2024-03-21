@@ -5,31 +5,30 @@ import {LoginComponent} from "./project/website/login/login.component";
 import {SignUpComponent} from "./project/website/sign-up/sign-up.component";
 import {ContactUsComponent} from "./project/website/contact-us/contact-us.component";
 import {AboutUsComponent} from "./project/website/about-us/about-us.component";
+import {NotFoundComponent} from "./project/website/not-found/not-found.component";
+import {DashboardComponent} from "./project/backoffice/dashboard/dashboard.component";
+import {ProductsComponent} from "./project/backoffice/products/products.component";
+import {BackOfficeLayoutComponent} from "./project/backoffice/back-office-layout.component";
 
 export const routes: Routes = [
   {
+    path: 'backoffice',
+    component: BackOfficeLayoutComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'products', component: ProductsComponent }
+    ]
+  },
+  {
     path: '',
     component: WebsiteLayoutComponent,
-    children: [{ path: '', component: HomeComponent }],
-  },
-  {
-    path: 'login',
-    component: WebsiteLayoutComponent,
-    children: [{ path: '', component: LoginComponent }],
-  },
-  {
-    path: 'sign-up',
-    component: WebsiteLayoutComponent,
-    children: [{ path: '', component: SignUpComponent }],
-  },
-  {
-    path: 'contact-us',
-    component: WebsiteLayoutComponent,
-    children: [{ path: '', component: ContactUsComponent }],
-  },
-  {
-    path: 'about-us',
-    component: WebsiteLayoutComponent,
-    children: [{ path: '', component: AboutUsComponent }],
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'sign-up', component: SignUpComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      { path: '**', component: NotFoundComponent }
+    ]
   }
 ];

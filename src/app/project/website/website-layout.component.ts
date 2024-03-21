@@ -13,7 +13,6 @@ import {NgIf} from "@angular/common";
   styleUrl: './website-layout.component.css'
 })
 export class WebsiteLayoutComponent implements AfterViewInit {
-  @ViewChild('loader') loader!: ElementRef;
   jsFiles: string[] = [
     '../../assets/js/jquery-3.6.0.min.js',
     '../../assets/js/jquery-ui.min.js',
@@ -49,12 +48,41 @@ export class WebsiteLayoutComponent implements AfterViewInit {
     }
   }
 
+  loadCssFiles(): void {
+    const cssFiles = [
+      "../../assets/css/vendors/bootstrap.css",
+      "../../assets/css/vendors/bootstrap.rtl.css",
+      "../../assets/css/animate.min.css",
+      "../../assets/css/vendors/font-awesome.css",
+      "../../assets/css/vendors/feather-icon.css",
+      "../../assets/css/vendors/slick/slick.css",
+      "../../assets/css/vendors/slick/slick-theme.css",
+      "../../assets/css/bulk-style.css",
+      "../../assets/css/vendors/animate.css",
+      "../../assets/css/style.css",
+      "../../assets/css/custom.css",
+      "../../assets/css/font.css"
+    ];
+
+    cssFiles.forEach(cssFile => {
+      const linkElement = this.renderer.createElement('link');
+      this.renderer.setAttribute(linkElement, 'rel', 'stylesheet');
+      this.renderer.setAttribute(linkElement, 'type', 'text/css');
+      this.renderer.setAttribute(linkElement, 'href', cssFile);
+      this.renderer.appendChild(document.head, linkElement);
+    });
+  }
+
   constructor(private renderer: Renderer2) {
+    this.loadCssFiles();
+    this.loadScript(0);
 
   }
 
   ngAfterViewInit(): void {
-    this.loadScript(0);
-    this.isLoaderShow = false;
+    this.renderer.listen('window', 'load', () => {
+      this.isLoaderShow = false;
+    });
+
   }
 }
