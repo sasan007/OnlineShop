@@ -25,9 +25,23 @@
               "src/assets"
             ],
             "styles": [
-              
+              "src/assets/back/css/linearicon.css",
+              "src/assets/back/css/vendors/font-awesome.css",
+              "src/assets/back/css/vendors/themify.css",
+              "src/assets/back/css/ratio.css",
+              "src/assets/back/css/remixicon.css",
+              "src/assets/back/css/vendors/feather-icon.css",
+              "src/assets/back/css/vendors/scrollbar.css",
+              "src/assets/back/css/vendors/animate.css",
+              "src/assets/back/css/vendors/bootstrap.css",
+              "src/assets/back/css/vector-map.css",
+              "src/assets/back/css/vendors/slick.css",
+              "src/assets/back/css/style.css",
+              "src/assets/back/css/font.css",
+              "src/assets/back/css/custom.css"
             ],
             "scripts": [
+
             ]
           },
           "configurations": {
