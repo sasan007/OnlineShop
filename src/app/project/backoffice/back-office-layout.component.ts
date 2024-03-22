@@ -1,9 +1,14 @@
 import {AfterViewInit, Component, Renderer2} from '@angular/core';
+import {SideBarComponent} from "./side-bar/side-bar.component";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-back-office-layout',
   standalone: true,
-  imports: [],
+  imports: [
+    SideBarComponent,
+    RouterOutlet
+  ],
   templateUrl: './back-office-layout.component.html',
   styleUrl: './back-office-layout.component.css'
 })

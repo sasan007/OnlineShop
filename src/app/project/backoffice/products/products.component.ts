@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-
+constructor() {
+  debugger
+}
 }
