@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {NgIf} from "@angular/common";
 
@@ -12,7 +12,7 @@ import {NgIf} from "@angular/common";
   templateUrl: './website-layout.component.html',
   styleUrl: './website-layout.component.css'
 })
-export class WebsiteLayoutComponent implements AfterViewInit {
+export class WebsiteLayoutComponent {
   jsFiles: string[] = [
     '../../assets/js/jquery-3.6.0.min.js',
     '../../assets/js/jquery-ui.min.js',
@@ -79,10 +79,4 @@ export class WebsiteLayoutComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit(): void {
-    this.renderer.listen('window', 'load', () => {
-      this.isLoaderShow = false;
-    });
-
-  }
 }

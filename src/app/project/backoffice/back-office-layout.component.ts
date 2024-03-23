@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Renderer2} from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {SideBarComponent} from "./side-bar/side-bar.component";
 import {RouterOutlet} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {RouterOutlet} from "@angular/router";
   templateUrl: './back-office-layout.component.html',
   styleUrl: './back-office-layout.component.css'
 })
-export class BackOfficeLayoutComponent  implements AfterViewInit {
+export class BackOfficeLayoutComponent {
   jsFiles: string[] = [
     "../../assets/back/js/jquery-3.6.0.min.js",
       "../../assets/back/js/bootstrap/bootstrap.bundle.min.js",
@@ -36,7 +36,6 @@ export class BackOfficeLayoutComponent  implements AfterViewInit {
       "../../assets/back/js/ratio.js",
       "../../assets/back/js/sidebareffect.js",
       "../../assets/back/js/script.js"];
-  isLoaderShow: any = true;
 
   loadScript(index: number) {
     if (index < this.jsFiles.length) {
@@ -84,10 +83,4 @@ export class BackOfficeLayoutComponent  implements AfterViewInit {
 
   }
 
-  ngAfterViewInit(): void {
-    this.renderer.listen('window', 'load', () => {
-      this.isLoaderShow = false;
-    });
-
-  }
 }
