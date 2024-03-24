@@ -4,11 +4,6 @@ import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-back-office-layout',
-  standalone: true,
-  imports: [
-    SideBarComponent,
-    RouterOutlet
-  ],
   templateUrl: './back-office-layout.component.html',
   styleUrl: './back-office-layout.component.css'
 })

@@ -4,8 +4,6 @@ import titles from "../../../share/localization/fa.titles.json";
 
 @Component({
   selector: 'app-sign-up',
-  standalone: true,
-  imports: [],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })

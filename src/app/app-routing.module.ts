@@ -1,14 +1,15 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import {BackOfficeLayoutComponent} from "./project/backoffice/back-office-layout.component";
+import {DashboardComponent} from "./project/backoffice/dashboard/dashboard.component";
+import {ProductsComponent} from "./project/backoffice/products/products.component";
 import {WebsiteLayoutComponent} from "./project/website/website-layout.component";
-import {HomeComponent} from "./project/website/home/home.component";
 import {LoginComponent} from "./project/website/login/login.component";
 import {SignUpComponent} from "./project/website/sign-up/sign-up.component";
 import {ContactUsComponent} from "./project/website/contact-us/contact-us.component";
 import {AboutUsComponent} from "./project/website/about-us/about-us.component";
 import {NotFoundComponent} from "./project/website/not-found/not-found.component";
-import {DashboardComponent} from "./project/backoffice/dashboard/dashboard.component";
-import {ProductsComponent} from "./project/backoffice/products/products.component";
-import {BackOfficeLayoutComponent} from "./project/backoffice/back-office-layout.component";
+import {HomeComponent} from "./project/website/home/home.component";
 
 export const routes: Routes = [
   {
@@ -32,3 +33,9 @@ export const routes: Routes = [
     ]
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

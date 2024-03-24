@@ -4,8 +4,6 @@ import titles from "../../../share/localization/fa.titles.json";
 
 @Component({
   selector: 'app-about-us',
-  standalone: true,
-  imports: [],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })

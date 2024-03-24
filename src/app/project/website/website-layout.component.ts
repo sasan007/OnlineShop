@@ -4,11 +4,6 @@ import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-website-layout',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    NgIf
-  ],
   templateUrl: './website-layout.component.html',
   styleUrl: './website-layout.component.css'
 })
@@ -74,6 +69,7 @@ export class WebsiteLayoutComponent {
   }
 
   constructor(private renderer: Renderer2) {
+
     this.loadCssFiles();
     this.loadScript(0);
 
