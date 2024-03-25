@@ -1,0 +1,236 @@
+<div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel"
+     aria-labelledby="pills-dashboard-tab">
+  <div class="dashboard-home">
+    <div class="title">
+      <h2>داشبورد من</h2>
+      <span class="title-leaf">
+                                            <svg class="icon-width bg-gray">
+                                                <use xlink:href="assets/svg/leaf.svg#leaf"></use>
+                                            </svg>
+                                        </span>
+    </div>
+
+    <div class="dashboard-user-name">
+      <h6 class="text-content">سلام, <b class="text-title">{{fullName}}</b></h6>
+      <p class="text-content">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+        است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+        کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+    </div>
+
+    <div class="total-box">
+      <div class="row g-sm-4 g-3">
+        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+          <div class="totle-contain">
+            <img src="assets/images/svg/order.svg"
+                 class="img-1 blur-up lazyload" alt="">
+            <img src="assets/images/svg/order.svg" class="blur-up lazyload"
+                 alt="">
+            <div class="totle-detail">
+              <h5>مجموع سفارشات</h5>
+              <h3>3658</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+          <div class="totle-contain">
+            <img src="assets/images/svg/pending.svg"
+                 class="img-1 blur-up lazyload" alt="">
+            <img src="assets/images/svg/pending.svg" class="blur-up lazyload"
+                 alt="">
+            <div class="totle-detail">
+              <h5>سفارشات در انتظار</h5>
+              <h3>254</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+          <div class="totle-contain">
+            <img src="assets/images/svg/wishlist.svg"
+                 class="img-1 blur-up lazyload" alt="">
+            <img src="assets/images/svg/wishlist.svg"
+                 class="blur-up lazyload" alt="">
+            <div class="totle-detail">
+              <h5>مجموع علاقه‌مندی ها</h5>
+              <h3>32158</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-title">
+      <h3>اطلاعات حساب کاربری</h3>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-xxl-6">
+        <div class="dashboard-contant-title">
+          <h4>اطلاعات اولیه <a href="javascript:void(0)"
+                               data-bs-toggle="modal" data-bs-target="#editProfile">ویرایش</a>
+          </h4>
+        </div>
+        <div class="dashboard-detail">
+          <h6 class="text-content">{{fullName}}</h6>
+          <h6 class="text-content">{{user.email}}</h6>
+          <a href="javascript:void(0)">تغییر رمز عبور</a>
+        </div>
+      </div>
+
+      <div class="col-xxl-6">
+        <div class="dashboard-contant-title">
+          <h4>خبرنامه <a href="javascript:void(0)" data-bs-toggle="modal"
+                         data-bs-target="#editProfile">ویرایش</a></h4>
+        </div>
+        <div class="dashboard-detail">
+          <h6 class="text-content">شما در حال حاضر عضو خبرنامه نیستید!</h6>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="dashboard-contant-title">
+          <h4>آدرس شما <a href="javascript:void(0)" data-bs-toggle="modal"
+                          data-bs-target="#editProfile">ویرایش</a></h4>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-xxl-6"  *ngFor="let address of addressArray">
+            <div class="dashboard-detail">
+              <h6 class="text-content tag-address">{{address.tag}}</h6>
+              <h6 class="text-content">{{address.city}}</h6>
+              <h6 class="text-content">{{address.address}}</h6>
+              <a href="javascript:void(0)" data-bs-toggle="modal"
+                 data-bs-target="#editProfile">ویرایش آدرس</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Profile Start -->
+<div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">ویرایش پروفایل</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-xxl-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="pname" value="امین احمدی">
+                <label for="pname">نام کامل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="email" class="form-control" id="email1" value="email@domain.com">
+                <label for="email1">آدرس ایمیل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input class="form-control" type="tel" value="123456789" name="mobile" id="mobile"
+                       maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
+                                            this.value.slice(0, this.maxLength);">
+                <label for="mobile">شماره تماس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address1"
+                       value="تهران برج میلاد ">
+                <label for="address1">افزودن آدرس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address2" value="شیراز هتل چمران">
+                <label for="address2">افودن آدرس دوم</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect1"
+                        aria-label="Floating label select example">
+                  <option selected>کشور خود را انتخاب کنید</option>
+                  <option value="kindom">کانادا</option>
+                  <option value="states">آمریکا</option>
+                  <option value="fra">ایران</option>
+                  <option value="china">چین</option>
+                  <option value="spain">اسپانیا</option>
+                  <option value="italy">ایتالیا</option>
+                  <option value="turkey">ترکیه</option>
+                  <option value="germany">آلمان</option>
+                  <option value="russian">روسیه</option>
+                  <option value="malay">مالزی</option>
+                  <option value="mexico">مکزیک</option>
+                  <option value="austria">استرالیا</option>
+                  <option value="hong">هنگ کنگ</option>
+                  <option value="ukraine">اکراین</option>
+                </select>
+                <label for="floatingSelect">کشور</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect">
+                  <option selected>شهر خود را انتخاب کنید</option>
+                  <option value="kindom">شیراز</option>
+                  <option value="states">تهران</option>
+                  <option value="fra">تبریز</option>
+                  <option value="china">یزد</option>
+                  <option value="spain">بوشهر</option>
+                </select>
+                <label for="floatingSelect">شهر</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address3" value="94080">
+                <label for="address3">کد پستی</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold"
+                data-bs-dismiss="modal">بستن</button>
+        <button type="button" data-bs-dismiss="modal"
+                class="btn theme-bg-color btn-md fw-bold text-light">ذخیره تغییرات</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Profile End -->

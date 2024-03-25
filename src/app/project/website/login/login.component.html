@@ -43,14 +43,14 @@
             <form class="row g-4" (ngSubmit)="onSubmit($event)" >
               <div class="col-12" *ngIf="!emailOrPhoneNumberIsExist">
                 <div class="form-floating theme-form-floating log-in-form">
-                  <input type="email" name="userKey" [(ngModel)]="userCredential.userKey" class="form-control" id="email" placeholder="ایمیل خود را وارد کنید">
+                  <input type="email" name="userKey" [(ngModel)]="userCredential" class="form-control" id="email" placeholder="ایمیل خود را وارد کنید">
                   <label for="email">شماره موبایل یا ایمیل</label>
                 </div>
               </div>
 
               <div class="col-12" *ngIf="emailOrPhoneNumberIsExist">
                 <div class="form-floating theme-form-floating log-in-form">
-                  <input type="password" name="password" [(ngModel)]="userCredential.password" class="form-control" id="رمز عبور خود را وارد کنید"
+                  <input type="password" name="password" [(ngModel)]="userConfirmation" class="form-control" id="رمز عبور خود را وارد کنید"
                          placeholder="Password">
                   <label>رمز عبور</label>
                 </div>

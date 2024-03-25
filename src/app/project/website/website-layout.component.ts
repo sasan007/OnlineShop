@@ -1,6 +1,8 @@
 import {Component, Renderer2} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {NgIf} from "@angular/common";
+import {CookieService} from "ngx-cookie-service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-website-layout',
@@ -28,7 +30,7 @@ export class WebsiteLayoutComponent {
     '../../assets/js/custom-wow.js',
     '../../assets/js/script.js',
     '../../assets/js/theme-setting.js'];
-  isLoaderShow: any = true;
+  userData: any;
 
   loadScript(index: number) {
     if (index < this.jsFiles.length) {
@@ -68,11 +70,29 @@ export class WebsiteLayoutComponent {
     });
   }
 
-  constructor(private renderer: Renderer2) {
-
+  constructor(private renderer: Renderer2,
+              private userService: UserService,
+              private cookieService: CookieService) {
     this.loadCssFiles();
     this.loadScript(0);
 
   }
 
+  ngOnInit() {
+    this.userService.loginSucceedEvent.subscribe(data => {
+      this.userData = data;
+    });
+    if(this.cookieService.check('profile'))
+    {
+      let userdata = JSON.parse(this.cookieService.get('profile'));
+      if(userdata!== undefined)
+      {
+        this.userData = userdata;
+      }
+    }
+  }
+
+  logout() {
+    this.userService.logout();
+  }
 }

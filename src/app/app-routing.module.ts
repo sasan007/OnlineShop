@@ -10,6 +10,14 @@ import {ContactUsComponent} from "./project/website/contact-us/contact-us.compon
 import {AboutUsComponent} from "./project/website/about-us/about-us.component";
 import {NotFoundComponent} from "./project/website/not-found/not-found.component";
 import {HomeComponent} from "./project/website/home/home.component";
+import {UserDashboardComponent} from "./project/website/user-dashboard/user-dashboard.component";
+import {DashboardTabComponent} from "./project/website/user-dashboard/dashboard-tab/dashboard-tab.component";
+import {AddressTabComponent} from "./project/website/user-dashboard/address-tab/address-tab.component";
+import {SecurityTabComponent} from "./project/website/user-dashboard/security-tab/security-tab.component";
+import {CardTabComponent} from "./project/website/user-dashboard/card-tab/card-tab.component";
+import {WishListTabComponent} from "./project/website/user-dashboard/wish-list-tab/wish-list-tab.component";
+import {OrderTabComponent} from "./project/website/user-dashboard/order-tab/order-tab.component";
+import {ProfileTabComponent} from "./project/website/user-dashboard/profile-tab/profile-tab.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +35,19 @@ export const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'sign-up', component: SignUpComponent },
+      {
+        path: 'user-dashboard',
+        component: UserDashboardComponent,
+        children: [
+          { path: '', component: DashboardTabComponent },
+          { path: 'address', component: AddressTabComponent },
+          { path: 'security', component: SecurityTabComponent },
+          { path: 'card', component: CardTabComponent },
+          { path: 'wish-list', component: WishListTabComponent },
+          { path: 'order', component: OrderTabComponent },
+          { path: 'profile', component: ProfileTabComponent },
+        ]
+      },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'about-us', component: AboutUsComponent },
       { path: '**', component: NotFoundComponent }

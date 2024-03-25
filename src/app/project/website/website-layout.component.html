@@ -250,18 +250,27 @@
                       </div>
                       <div class="delivery-detail">
                         <h6>سلام,</h6>
-                        <h5>حساب کاربری من</h5>
+                        <h5>{{ this.userData ? this.userData.name + ' ' + this.userData.lastName : 'حساب کاربری من' }}</h5>
                       </div>
                     </div>
 
                     <div class="onhover-div onhover-div-login">
-                      <ul class="user-box-name">
+                      <ul class="user-box-name" *ngIf="userData === undefined">
                         <li class="product-box-contain">
                           <i></i>
                           <a href="/login">ورود | ثبت‌نام</a>
                         </li>
                         <li class="product-box-contain">
                           <a href="forgot.html">فراموشی رمز عبور</a>
+                        </li>
+                      </ul>
+                      <ul class="user-box-name" *ngIf="userData !== undefined">
+                        <li class="product-box-contain">
+                          <i></i>
+                          <a href="/user-dashboard">حساب کاربری</a>
+                        </li>
+                        <li class="product-box-contain">
+                          <a href="" (click)="logout()">خروج</a>
                         </li>
                       </ul>
                     </div>

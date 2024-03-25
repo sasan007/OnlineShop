@@ -1,0 +1,271 @@
+<div class="tab-pane fade show" id="pills-profile" role="tabpanel"
+     aria-labelledby="pills-profile-tab">
+  <div class="dashboard-profile">
+    <div class="title">
+      <h2>پروفایل من</h2>
+      <span class="title-leaf">
+                                            <svg class="icon-width bg-gray">
+                                                <use xlink:href="assets/svg/leaf.svg#leaf"></use>
+                                            </svg>
+                                        </span>
+    </div>
+
+    <div class="profile-detail dashboard-bg-box">
+      <div class="dashboard-title">
+        <h3>اطلاعات کلی</h3>
+      </div>
+      <div class="profile-name-detail">
+        <div class="d-sm-flex align-items-center d-block">
+          <h3>{{fullName}}</h3>
+          <div class="product-rating profile-rating">
+            <ul class="rating">
+              <li>
+                <i data-feather="star" class="fill"></i>
+              </li>
+              <li>
+                <i data-feather="star" class="fill"></i>
+              </li>
+              <li>
+                <i data-feather="star" class="fill"></i>
+              </li>
+              <li>
+                <i data-feather="star"></i>
+              </li>
+              <li>
+                <i data-feather="star"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="javascript:void(0)" data-bs-toggle="modal"
+           data-bs-target="#editProfile">ویرایش</a>
+      </div>
+
+      <div class="location-profile">
+        <ul>
+          <li>
+            <div class="location-box">
+              <i data-feather="map-pin"></i>
+              <h6>تهران، برج میلاد</h6>
+            </div>
+          </li>
+
+          <li>
+            <div class="location-box">
+              <i data-feather="mail"></i>
+              <h6>{{user.email}}</h6>
+            </div>
+          </li>
+
+          <li>
+            <div class="location-box">
+              <i data-feather="check-square"></i>
+              <h6>میزان فعالیت : 2 سال</h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="profile-description">
+        <p>اقامتگاه ها را می توان بر اساس و نحوه اتصال آنها طبقه بندی کرد
+          خانه ها و زمین های همسایه انواع مختلف تصدی مسکن می تواند
+          برای همان نوع فیزیکی استفاده شود.</p>
+      </div>
+    </div>
+
+    <div class="profile-about dashboard-bg-box">
+      <div class="row">
+        <div class="col-xxl-7">
+          <div class="dashboard-title mb-3">
+            <h3>اطلاعات کامل</h3>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+<!--              <tr>-->
+<!--                <td>جنسیت :</td>-->
+<!--                <td>زن</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>تاریخ تولد :</td>-->
+<!--                <td>1400/12/12</td>-->
+<!--              </tr>-->
+              <tr>
+                <td>شماره تماس :</td>
+                <td>
+                  <a href="javascript:void(0)">{{user.phoneNumber}}</a>
+                </td>
+              </tr>
+              <tr>
+                <td>آدرس :</td>
+                <td>تهران برج میلاد</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="dashboard-title mb-3">
+            <h3>اطلاعات ورود</h3>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr>
+                <td>ایمیل :</td>
+                <td>
+                  <a href="javascript:void(0)">{{user.email}}
+                    <span data-bs-toggle="modal"
+                          data-bs-target="#editProfile">ویرایش</span></a>
+                </td>
+              </tr>
+              <tr>
+                <td>رمز ورود :</td>
+                <td>
+                  <a href="javascript:void(0)">●●●●●●
+                    <span data-bs-toggle="modal"
+                          data-bs-target="#editProfile">ویرایش</span></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-xxl-5">
+          <div class="profile-image">
+            <img src="assets/images/inner-page/dashboard-profile.png"
+                 class="img-fluid blur-up lazyload" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Edit Profile Start -->
+<div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">ویرایش پروفایل</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-xxl-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="pname" value="امین احمدی">
+                <label for="pname">نام کامل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="email" class="form-control" id="email1" value="email@domain.com">
+                <label for="email1">آدرس ایمیل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input class="form-control" type="tel" value="123456789" name="mobile" id="mobile"
+                       maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
+                                            this.value.slice(0, this.maxLength);">
+                <label for="mobile">شماره تماس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address1"
+                       value="تهران برج میلاد ">
+                <label for="address1">افزودن آدرس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address2" value="شیراز هتل چمران">
+                <label for="address2">افودن آدرس دوم</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect1"
+                        aria-label="Floating label select example">
+                  <option selected>کشور خود را انتخاب کنید</option>
+                  <option value="kindom">کانادا</option>
+                  <option value="states">آمریکا</option>
+                  <option value="fra">ایران</option>
+                  <option value="china">چین</option>
+                  <option value="spain">اسپانیا</option>
+                  <option value="italy">ایتالیا</option>
+                  <option value="turkey">ترکیه</option>
+                  <option value="germany">آلمان</option>
+                  <option value="russian">روسیه</option>
+                  <option value="malay">مالزی</option>
+                  <option value="mexico">مکزیک</option>
+                  <option value="austria">استرالیا</option>
+                  <option value="hong">هنگ کنگ</option>
+                  <option value="ukraine">اکراین</option>
+                </select>
+                <label for="floatingSelect">کشور</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect">
+                  <option selected>شهر خود را انتخاب کنید</option>
+                  <option value="kindom">شیراز</option>
+                  <option value="states">تهران</option>
+                  <option value="fra">تبریز</option>
+                  <option value="china">یزد</option>
+                  <option value="spain">بوشهر</option>
+                </select>
+                <label for="floatingSelect">شهر</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address3" value="94080">
+                <label for="address3">کد پستی</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold"
+                data-bs-dismiss="modal">بستن</button>
+        <button type="button" data-bs-dismiss="modal"
+                class="btn theme-bg-color btn-md fw-bold text-light">ذخیره تغییرات</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Profile End -->
+

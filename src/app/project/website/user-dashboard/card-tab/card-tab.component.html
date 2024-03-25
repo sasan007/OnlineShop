@@ -1,0 +1,174 @@
+<div class="tab-pane fade show" id="pills-card" role="tabpanel"
+     aria-labelledby="pills-card-tab">
+  <div class="dashboard-card">
+    <div class="title title-flex">
+      <div>
+        <h2>اطلاعات حساب های بانکی</h2>
+        <span class="title-leaf">
+                                                <svg class="icon-width bg-gray">
+                                                    <use xlink:href="assets/svg/leaf.svg#leaf"></use>
+                                                </svg>
+                                            </span>
+      </div>
+
+      <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3"
+              data-bs-toggle="modal" data-bs-target="#editCard"><i data-feather="plus"
+                                                                   class="me-2"></i> افزودن حساب جدید</button>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-xxl-4 col-xl-6 col-lg-12 col-sm-6"  *ngFor="let card of cardArray">
+        <div class="payment-card-detail">
+          <div class="card-details">
+            <div class="card-number">
+              <h4>{{card.number}}</h4>
+            </div>
+
+            <div class="valid-detail">
+              <div class="title">
+                <span>باتک</span>
+                <span>{{card.bank}}</span>
+              </div>
+              <div class="date">
+                <h3>{{card.exp}}</h3>
+              </div>
+              <div class="primary">
+                <span class="badge bg-pill badge-light">CVV2 : {{card.CVV2}}</span>
+              </div>
+            </div>
+
+            <div class="name-detail">
+              <div class="name">
+                <h5>{{fullName}}</h5>
+              </div>
+              <div class="card-img">
+                <img src="assets/images/payment-icon/1.jpg"
+                     class="img-fluid blur-up lazyloaded" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-card">
+            <a data-bs-toggle="modal" data-bs-target="#editCard"
+               href="javascript:void(0)"><i class="far fa-edit"></i> ویرایش</a>
+            <a href="javascript:void(0)" data-bs-toggle="modal"
+               data-bs-target="#removeProfile"><i
+              class="far fa-minus-square"></i> حذف</a>
+          </div>
+        </div>
+
+        <div class="edit-card-mobile">
+          <a data-bs-toggle="modal" data-bs-target="#editCard"
+             href="javascript:void(0)"><i class="far fa-edit"></i> ویرایش</a>
+          <a href="javascript:void(0)"><i class="far fa-minus-square"></i>
+            حذف</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Card Start -->
+<div class="modal fade theme-modal" id="editCard" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel8">ویرایش حساب</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="finame" value="زینب">
+                <label for="finame">نام</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="laname" value="احمدی">
+                <label for="laname">نام خانوادگی</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect12"
+                        aria-label="Floating label select example">
+                  <option selected>نام بانک</option>
+                  <option value="kindom">ملی</option>
+                  <option value="states">مسکن</option>
+                  <option value="fra">کشاورزی</option>
+                  <option value="china">تجارت</option>
+                  <option value="spain">ملت</option>
+                </select>
+                <label for="floatingSelect12">نام بانک</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold"
+                data-bs-dismiss="modal">لغو</button>
+        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light">بروزرسانی حساب</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Card End -->
+<!-- Remove Profile Modal Start -->
+<div class="modal fade theme-modal remove-profile" id="removeProfile" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header d-block text-center">
+        <h5 class="modal-title w-100" id="exampleModalLabel22">هشدار</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box">
+          <p>پس از حذف حساب امکان بازگردانی حساب وجود ندارد. آیا ادامه میدهید ؟</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">نه</button>
+        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light"
+                data-bs-target="#removeAddress" data-bs-toggle="modal">بله</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade theme-modal remove-profile" id="removeAddress" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel12">تمام!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box text-center">
+          <h4 class="text-content">حساب با موفقیت حذف شد.</h4>
+        </div>
+      </div>
+      <div class="modal-footer pt-0">
+        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light"
+                data-bs-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Remove Profile Modal End -->

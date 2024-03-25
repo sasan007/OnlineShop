@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import titles from '../../../share/localization/fa.titles.json';
 import {NgForm} from "@angular/forms";
-import {UserCredential} from "./models/user-credential";
+import {UserCredential} from "../../../models/user-credential";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -11,15 +13,17 @@ import {ToastrService} from "ngx-toastr";
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+
   emailOrPhoneNumberIsExist: boolean = false;
   submitButtonCaption = 'ورود';
 
-  userCredential: UserCredential = {
-    userKey: '',
-    password: ''
-  };
+  userCredential: string = "";
+  userConfirmation: string = "";
 
-  constructor(private titleService: Title, private toastr: ToastrService) {
+  constructor(private titleService: Title,
+              private toastr: ToastrService,
+              private userService: UserService,
+              private router: Router) {
 
   }
 
@@ -29,25 +33,47 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const phoneNumberPattern = /^09\d{9}$/; // Phone number pattern: 09*********
-    const emailPattern = /^\S+@\S+\.\S+$/; // Phone number pattern: 09*********
-    if (phoneNumberPattern.test(this.userCredential.userKey)) {
-      this.submitButtonCaption = 'تایید';
-      this.emailOrPhoneNumberIsExist = true;
+    let user: UserCredential;
+    const phoneNumberPattern = /^09\d{9}$/;
+    const emailPattern = /^\S+@\S+\.\S+$/;
+    user = this.userService.getUser();
 
-    } else if (emailPattern.test(this.userCredential.userKey)) {
-      this.submitButtonCaption = 'تایید';
-      this.emailOrPhoneNumberIsExist = true;
+    if (phoneNumberPattern.test(this.userCredential)) {
+      if (user.phoneNumber === this.userCredential) {
+        this.submitButtonCaption = 'تایید';
+        this.emailOrPhoneNumberIsExist = true;
+      } else {
+        this.toastr.error('شماره موبایل وارد شده صحیح نیست', '', {
+          positionClass: 'toast-bottom-right'
+        });
+      }
+
+    } else if (emailPattern.test(this.userCredential)) {
+      if (user.email === this.userCredential) {
+        this.submitButtonCaption = 'تایید';
+        this.emailOrPhoneNumberIsExist = true;
+      } else {
+        this.toastr.error('ایمیل وارد شده صحیح نیست', '', {
+          positionClass: 'toast-bottom-right'
+        });
+      }
 
     } else {
       this.toastr.error('فرمت وارد شده صحیح نمی باشد', '', {
         positionClass: 'toast-bottom-right'
       });
     }
-    if (this.userCredential.password.length > 2)
-      this.toastr.success('خوش آمدید', '', {
-        positionClass: 'toast-bottom-right'
-      });
-    form.ngSubmit.emit();
+    if (this.userConfirmation.length > 2) {
+      if (user.password === this.userConfirmation) {
+        this.router.navigate(['/user-dashboard']);
+        this.userService.login(user);
+        this.userService.loginSucceedEvent.emit(user);
+
+      } else {
+        this.toastr.error('رمز عبور اشتباه است', '', {
+          positionClass: 'toast-bottom-right'
+        });
+      }
+    }
   }
 }

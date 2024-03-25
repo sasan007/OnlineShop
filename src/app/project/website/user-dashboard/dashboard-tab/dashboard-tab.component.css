@@ -1,0 +1,10 @@
+.dashboard-detail .tag-address {
+  position: relative;
+  background-color: var(--theme-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  width: max-content;
+  letter-spacing: 0.8px;
+}

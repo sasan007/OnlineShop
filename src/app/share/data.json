@@ -1,0 +1,41 @@
+{
+  "phoneNumber": "09125249016",
+  "email": "sasankarimi92@gmail.com",
+  "password": "123",
+  "name": "ساسان",
+  "lastName": "کریمی",
+  "addresses": [
+    {
+      "address": "خیابان اول، کوچه دوم، پلاک 1",
+      "province": "تهران",
+      "city": "تهران",
+      "tag": "خانه",
+      "isDefault": true,
+      "zipCode": "10001"
+    },
+    {
+      "address": "خیابان دوم، کوچه سوم، پلاک 103",
+      "province": "اصفهان",
+      "tag": "محل کار",
+      "city": "شاهین شهر",
+      "isDefault": false,
+      "zipCode": "90001"
+    }
+  ],
+  "cards": [
+    {
+      "number": "6263-6456-5734-5645",
+      "CVV2": "3456",
+      "isDefault": true,
+      "exp": "04/09",
+      "bank": "آینده"
+    },
+    {
+      "number": "6263-0889-9879-2009",
+      "CVV2": "8767",
+      "isDefault": false,
+      "exp": "06/07",
+      "bank": "ملی"
+    }
+  ]
+}

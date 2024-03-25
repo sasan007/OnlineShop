@@ -22,6 +22,14 @@ import {ProductComponent} from "./project/website/product/product.component";
 import {SideBarComponent} from "./project/backoffice/side-bar/side-bar.component";
 import {SignUpComponent} from "./project/website/sign-up/sign-up.component";
 import {FormsModule} from "@angular/forms";
+import { UserDashboardComponent } from './project/website/user-dashboard/user-dashboard.component';
+import { DashboardTabComponent } from './project/website/user-dashboard/dashboard-tab/dashboard-tab.component';
+import { WishListTabComponent } from './project/website/user-dashboard/wish-list-tab/wish-list-tab.component';
+import { OrderTabComponent } from './project/website/user-dashboard/order-tab/order-tab.component';
+import { CardTabComponent } from './project/website/user-dashboard/card-tab/card-tab.component';
+import { ProfileTabComponent } from './project/website/user-dashboard/profile-tab/profile-tab.component';
+import { SecurityTabComponent } from './project/website/user-dashboard/security-tab/security-tab.component';
+import { AddressTabComponent } from './project/website/user-dashboard/address-tab/address-tab.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +47,15 @@ import {FormsModule} from "@angular/forms";
     ProductComponent,
     SideBarComponent,
     SignUpComponent,
-    WebsiteLayoutComponent
+    WebsiteLayoutComponent,
+    UserDashboardComponent,
+    DashboardTabComponent,
+    WishListTabComponent,
+    OrderTabComponent,
+    CardTabComponent,
+    ProfileTabComponent,
+    SecurityTabComponent,
+    AddressTabComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,311 @@
+<div class="tab-pane fade show" id="pills-address" role="tabpanel"
+     aria-labelledby="pills-address-tab">
+  <div class="dashboard-address">
+    <div class="title title-flex">
+      <div>
+        <h2>آدرس های شما</h2>
+        <span class="title-leaf">
+                                                <svg class="icon-width bg-gray">
+                                                    <use xlink:href="assets/svg/leaf.svg#leaf"></use>
+                                                </svg>
+                                            </span>
+      </div>
+
+      <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3"
+              data-bs-toggle="modal" data-bs-target="#add-address"><i data-feather="plus"
+                                                                      class="me-2"></i> افزودن آدرس جدید
+      </button>
+    </div>
+
+    <div class="row g-sm-4 g-3">
+      <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6" *ngFor="let address of addressArray">
+        <div class="address-box">
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="jack" [checked]="address.isDefault">
+            </div>
+
+            <div class="table-responsive address-table">
+              <table class="table">
+                <tbody>
+                <tr>
+                  <td colspan="2">{{address.tag}}</td>
+                </tr>
+
+                <tr>
+                  <td>آدرس :</td>
+                  <td>
+                    <p>{{address.address}}
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>کد پستی :</td>
+                  <td>{{address.zipCode}}</td>
+                </tr>
+
+                <tr>
+                  <td>استان :</td>
+                  <td>{{address.province}}</td>
+                </tr>
+
+                <tr>
+                  <td>شهر :</td>
+                  <td>{{address.city}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-sm add-button w-100" data-bs-toggle="modal"
+                    data-bs-target="#editProfile"><i data-feather="edit"></i>
+              ویرایش
+            </button>
+            <button class="btn btn-sm add-button w-100" data-bs-toggle="modal"
+                    data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
+              حذف
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Add address modal box start -->
+<div class="modal fade theme-modal" id="add-address" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">افرودن آدرس جدید</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-floating mb-4 theme-form-floating">
+            <input type="text" class="form-control" id="fname" placeholder="نام خود را وارد کنید">
+            <label for="fname">نام</label>
+          </div>
+        </form>
+
+        <form>
+          <div class="form-floating mb-4 theme-form-floating">
+            <input type="text" class="form-control" id="lname" placeholder="نام خانوادگی خود را وارد کنید">
+            <label for="lname">نام خانوادگی</label>
+          </div>
+        </form>
+
+        <form>
+          <div class="form-floating mb-4 theme-form-floating">
+            <input type="email" class="form-control" id="email" placeholder="ایمیل خود را وارد کنید">
+            <label for="email">ایمیل</label>
+          </div>
+        </form>
+
+        <form>
+          <div class="form-floating mb-4 theme-form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="address"
+                                      style="height: 100px"></textarea>
+            <label for="address">آدرس</label>
+          </div>
+        </form>
+
+        <form>
+          <div class="form-floating mb-4 theme-form-floating">
+            <input type="email" class="form-control" id="pin" placeholder="کد پستی خود را وارد کنید">
+            <label for="pin">کد پستی</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">بستن</button>
+        <button type="button" class="btn theme-bg-color btn-md text-white" data-bs-dismiss="modal">ذخیره تغییرات
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Add address modal box end -->
+
+<!-- Edit Profile Start -->
+<div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">ویرایش پروفایل</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-xxl-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="pname" value="امین احمدی">
+                <label for="pname">نام کامل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="email" class="form-control" id="email1" value="email@domain.com">
+                <label for="email1">آدرس ایمیل</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-6">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input class="form-control" type="tel" value="123456789" name="mobile" id="mobile"
+                       maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
+                                            this.value.slice(0, this.maxLength);">
+                <label for="mobile">شماره تماس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address1"
+                       value="تهران برج میلاد ">
+                <label for="address1">افزودن آدرس</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-12">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address2" value="شیراز هتل چمران">
+                <label for="address2">افودن آدرس دوم</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect1"
+                        aria-label="Floating label select example">
+                  <option selected>کشور خود را انتخاب کنید</option>
+                  <option value="kindom">کانادا</option>
+                  <option value="states">آمریکا</option>
+                  <option value="fra">ایران</option>
+                  <option value="china">چین</option>
+                  <option value="spain">اسپانیا</option>
+                  <option value="italy">ایتالیا</option>
+                  <option value="turkey">ترکیه</option>
+                  <option value="germany">آلمان</option>
+                  <option value="russian">روسیه</option>
+                  <option value="malay">مالزی</option>
+                  <option value="mexico">مکزیک</option>
+                  <option value="austria">استرالیا</option>
+                  <option value="hong">هنگ کنگ</option>
+                  <option value="ukraine">اکراین</option>
+                </select>
+                <label for="floatingSelect">کشور</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <select class="form-select" id="floatingSelect">
+                  <option selected>شهر خود را انتخاب کنید</option>
+                  <option value="kindom">شیراز</option>
+                  <option value="states">تهران</option>
+                  <option value="fra">تبریز</option>
+                  <option value="china">یزد</option>
+                  <option value="spain">بوشهر</option>
+                </select>
+                <label for="floatingSelect">شهر</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xxl-4">
+            <form>
+              <div class="form-floating theme-form-floating">
+                <input type="text" class="form-control" id="address3" value="94080">
+                <label for="address3">کد پستی</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold"
+                data-bs-dismiss="modal">بستن
+        </button>
+        <button type="button" data-bs-dismiss="modal"
+                class="btn theme-bg-color btn-md fw-bold text-light">ذخیره تغییرات
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Profile End -->
+<!-- Remove Profile Modal Start -->
+<div class="modal fade theme-modal remove-profile" id="removeProfile" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header d-block text-center">
+        <h5 class="modal-title w-100" id="exampleModalLabel22">هشدار</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box">
+          <p>پس از حذف حساب امکان بازگردانی حساب وجود ندارد. آیا ادامه میدهید ؟</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">نه</button>
+        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light"
+                data-bs-target="#removeAddress" data-bs-toggle="modal">بله
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade theme-modal remove-profile" id="removeAddress" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel12">تمام!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box text-center">
+          <h4 class="text-content">حساب با موفقیت حذف شد.</h4>
+        </div>
+      </div>
+      <div class="modal-footer pt-0">
+        <button type="button" class="btn theme-bg-color btn-md fw-bold text-light"
+                data-bs-dismiss="modal">بستن
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Remove Profile Modal End -->
