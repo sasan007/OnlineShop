@@ -1,5 +1,5 @@
 import {Component, Renderer2} from '@angular/core';
-import {RouterOutlet} from "@angular/router";
+import {Router, RouterOutlet} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {CookieService} from "ngx-cookie-service";
 import {UserService} from "../../services/user.service";
@@ -31,6 +31,7 @@ export class WebsiteLayoutComponent {
     '../../assets/js/script.js',
     '../../assets/js/theme-setting.js'];
   userData: any;
+  searchQuery: any;
 
   loadScript(index: number) {
     if (index < this.jsFiles.length) {
@@ -71,6 +72,7 @@ export class WebsiteLayoutComponent {
   }
 
   constructor(private renderer: Renderer2,
+              private router: Router,
               private userService: UserService,
               private cookieService: CookieService) {
     this.loadCssFiles();
@@ -82,14 +84,17 @@ export class WebsiteLayoutComponent {
     this.userService.loginSucceedEvent.subscribe(data => {
       this.userData = data;
     });
-    if(this.cookieService.check('profile'))
-    {
+    if (this.cookieService.check('profile')) {
       let userdata = JSON.parse(this.cookieService.get('profile'));
-      if(userdata!== undefined)
-      {
+      if (userdata !== undefined) {
         this.userData = userdata;
       }
     }
+  }
+
+  search() {
+    const queryParams = {searchParam: this.searchQuery};
+    this.router.navigate(['/product-list'], {queryParams});
   }
 
   logout() {

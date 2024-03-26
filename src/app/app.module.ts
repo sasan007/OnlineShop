@@ -30,6 +30,8 @@ import { CardTabComponent } from './project/website/user-dashboard/card-tab/card
 import { ProfileTabComponent } from './project/website/user-dashboard/profile-tab/profile-tab.component';
 import { SecurityTabComponent } from './project/website/user-dashboard/security-tab/security-tab.component';
 import { AddressTabComponent } from './project/website/user-dashboard/address-tab/address-tab.component';
+import { ProductListComponent } from './project/website/product-list/product-list.component';
+import { ProductDetailComponent } from './project/website/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { AddressTabComponent } from './project/website/user-dashboard/address-ta
     CardTabComponent,
     ProfileTabComponent,
     SecurityTabComponent,
-    AddressTabComponent
+    AddressTabComponent,
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

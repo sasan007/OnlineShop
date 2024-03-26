@@ -18,6 +18,8 @@ import {CardTabComponent} from "./project/website/user-dashboard/card-tab/card-t
 import {WishListTabComponent} from "./project/website/user-dashboard/wish-list-tab/wish-list-tab.component";
 import {OrderTabComponent} from "./project/website/user-dashboard/order-tab/order-tab.component";
 import {ProfileTabComponent} from "./project/website/user-dashboard/profile-tab/profile-tab.component";
+import {ProductListComponent} from "./project/website/product-list/product-list.component";
+import {ProductDetailComponent} from "./project/website/product-detail/product-detail.component";
 
 export const routes: Routes = [
   {
@@ -34,7 +36,9 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'sign-up', component: SignUpComponent },
+      // { path: 'sign-up', component: SignUpComponent },
+      { path: 'product-list', component: ProductListComponent },
+      { path: 'product-detail', component: ProductDetailComponent },
       {
         path: 'user-dashboard',
         component: UserDashboardComponent,

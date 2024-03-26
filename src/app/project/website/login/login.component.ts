@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     }
     if (this.userConfirmation.length > 2) {
       if (user.password === this.userConfirmation) {
-        this.router.navigate(['/user-dashboard']);
+        this.router.navigate(['']);
         this.userService.login(user);
         this.userService.loginSucceedEvent.emit(user);
 

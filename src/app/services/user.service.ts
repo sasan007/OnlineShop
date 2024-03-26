@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
-import * as jsonData from '../share/data.json';
+import * as jsonData from '../share/sample-data/user-data.json';
 import {UserCredential} from "../models/user-credential";
 @Injectable({
   providedIn: 'root'

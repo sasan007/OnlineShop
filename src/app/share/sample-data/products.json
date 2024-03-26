@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "بیسکویت کره بادام زمینی پرمیوم کره 300 گرمی",
+      "priceWithDiscount": "4200",
+      "price": "4500",
+      "weight": 300,
+      "pic": "assets/images/cake/product/4.png",
+      "category": "تنقلات",
+      "score": 2.4
+    },
+    {
+      "id": 2,
+      "name": "بیسکویت کره بادام زمینی پرمیوم کره 600 گرمی",
+      "priceWithDiscount": "7100",
+      "price": "7500",
+      "weight": 600,
+      "category": "تنقلات",
+      "pic": "assets/images/cake/product/3.png",
+      "score": 4
+    },
+    {
+      "id": 3,
+      "name": "کروسان کاکائویی",
+      "priceWithDiscount": "950",
+      "price": "1200",
+      "weight": 100,
+      "category": "خوراکی",
+      "pic": "assets/images/cake/product/5.png",
+      "score": 3.2
+    },
+    {
+      "id": 4,
+      "name": "آرد نان و شیرینی تازه 200 گرمی",
+      "priceWithDiscount": "3500",
+      "price": "3800",
+      "weight": 200,
+      "category": "مواد اولیه",
+      "pic": "assets/images/cake/product/2.png",
+      "score": 5
+    },
+    {
+      "id": 5,
+      "name": "ساندویچ مرغ هایلا",
+      "priceWithDiscount": "2700",
+      "price": "3000",
+      "weight": 350,
+      "category": "غذا",
+      "pic": "assets/images/cake/product/7.png",
+      "score": 4.8
+    }
+  ]
+}
