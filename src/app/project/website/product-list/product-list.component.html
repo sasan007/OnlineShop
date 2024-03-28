@@ -867,18 +867,16 @@
                   <h5 class="price"><span class="theme-color">{{product.priceWithDiscount}} تومان</span> <del> {{ product.price}}</del>
                   </h5>
                   <div class="add-to-cart-box bg-white">
-                    <button class="btn btn-add-cart addcart-button">افزودن
+                    <button class="btn btn-add-cart addcart-button" (click)="addToBasket(product.id)">{{ getQuantity(product.id) || 'افزودن' }}
                       <span class="add-icon bg-light-gray"> <i class="fa-solid fa-plus"></i> </span></button>
-                    <div class="cart_qty qty-box">
+                    <div class="cart_qty qty-box" #cardQuantity [attr.data-index]="product.id">
                       <div class="input-group bg-white">
-                        <button type="button" class="qty-left-minus bg-gray"
-                                data-type="minus" data-field="">
+                        <button (click)="deductFromBasket(product.id)" >
                           <i class="fa fa-minus" aria-hidden="true"></i>
                         </button>
-                        <input class="form-control input-number qty-input" type="text"
-                               name="quantity" value="0">
-                        <button type="button" class="qty-right-plus bg-gray"
-                                data-type="plus" data-field="">
+                        <input class="form-control input-number" type="text"
+                               name="quantity" [value]="getQuantity(product.id) || 'افزودن'">
+                        <button (click)="addToBasket(product.id)">
                           <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                       </div>

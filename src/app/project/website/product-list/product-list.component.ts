@@ -1,14 +1,27 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren,
+  viewChildren
+} from '@angular/core';
 import {ProductService} from "../../../services/product.service";
 import {Product} from "../../../models/product";
 import {ActivatedRoute} from "@angular/router";
+import {BasketActionEnum} from "../../../share/enums/basket-action-enum";
+import {Basket} from "../../../models/basket";
+import {BasketService} from "../../../services/basket.service";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit {
+  @ViewChildren('cardQuantity') cardQuantities!: QueryList<ElementRef>;
   rating: number = 0;
   productArray: Product[] = [];
   jsFiles: string[] = [
@@ -17,6 +30,8 @@ export class ProductListComponent implements OnInit{
     '../../assets/js/quantity-2.js',
     '../../assets/js/custom-wow.js',
     '../../assets/js/theme-setting.js'];
+  basket: Basket[] = [];
+  orderCount: number = 0;
 
   loadScript(index: number) {
     if (index < this.jsFiles.length) {
@@ -30,13 +45,32 @@ export class ProductListComponent implements OnInit{
       this.renderer.appendChild(document.body, script);
     }
   }
+
   trackByFn(index: number) {
     return index;
   }
+
   constructor(private productService: ProductService,
+              private basketService: BasketService,
               private renderer: Renderer2,
               private route: ActivatedRoute) {
     this.loadScript(0);
+  }
+
+  addOpenClass(productId: number) {
+    const selectedElement = this.cardQuantities.find(itemRef => itemRef.nativeElement.getAttribute('data-index') === productId.toString())?.nativeElement;
+    const hasOpenClass = selectedElement.classList.contains('open');
+    if (!hasOpenClass) {
+      this.renderer.addClass(selectedElement, 'open');
+    }
+  }
+
+  removeOpenClass(productId: number) {
+    const selectedElement = this.cardQuantities.find(itemRef => itemRef.nativeElement.getAttribute('data-index') === productId.toString())?.nativeElement;
+    const hasOpenClass = selectedElement.classList.contains('open');
+    if (hasOpenClass) {
+      this.renderer.removeClass(selectedElement, 'open');
+    }
   }
 
   getFullStarArray(rating: number): { fill: boolean }[] {
@@ -47,6 +81,11 @@ export class ProductListComponent implements OnInit{
       stars.push({fill: true});
     }
     return stars;
+  }
+
+  getQuantity(productId: number): any {
+    const product = this.basket.find(item => item.productId === productId);
+    return product ? product.count : 'افزودن';
   }
 
   getEmptyStarArray(rating: number): { fill: boolean }[] {
@@ -64,6 +103,10 @@ export class ProductListComponent implements OnInit{
     products.forEach((product: Product) => {
       this.productArray.push(product);
     });
+    this.basket = this.basketService.getBasket();
+    this.basketService.basketUpdatedEvent.subscribe(() => {
+      this.basket = this.basketService.getBasket();
+    });
     this.route.queryParams.subscribe(params => {
       if (!(Object.keys(params).length === 0 && params.constructor === Object)) {
         this.productArray = [];
@@ -75,5 +118,19 @@ export class ProductListComponent implements OnInit{
       this.loadScript(0);
 
     });
+  }
+
+  addToBasket(id: number) {
+    if (this.basket.findIndex(item => item.productId == id) === -1) {
+      this.addOpenClass(id)
+    }
+    this.basketService.updateBasket(id, BasketActionEnum.Increment);
+  }
+
+  deductFromBasket(id: number) {
+    if (this.basket.findIndex(item => item.productId == id && item.count === 1) !== -1) {
+      this.removeOpenClass(id)
+    }
+    this.basketService.updateBasket(id, BasketActionEnum.Decrement);
   }
 }

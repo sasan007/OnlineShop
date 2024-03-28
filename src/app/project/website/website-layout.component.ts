@@ -1,8 +1,11 @@
 import {Component, Renderer2} from '@angular/core';
-import {Router, RouterOutlet} from "@angular/router";
-import {NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
 import {UserService} from "../../services/user.service";
+import {Basket} from "../../models/basket";
+import {BasketService} from "../../services/basket.service";
+import {toArray} from "rxjs";
+import {BasketActionEnum} from "../../share/enums/basket-action-enum";
 
 @Component({
   selector: 'app-website-layout',
@@ -32,6 +35,9 @@ export class WebsiteLayoutComponent {
     '../../assets/js/theme-setting.js'];
   userData: any;
   searchQuery: any;
+  basket: Basket[] = [];
+  totalPrice: number = 0;
+  totalItem: number = 0;
 
   loadScript(index: number) {
     if (index < this.jsFiles.length) {
@@ -45,7 +51,6 @@ export class WebsiteLayoutComponent {
       this.renderer.appendChild(document.body, script);
     }
   }
-
   loadCssFiles(): void {
     const cssFiles = [
       "../../assets/css/vendors/bootstrap.css",
@@ -74,6 +79,7 @@ export class WebsiteLayoutComponent {
   constructor(private renderer: Renderer2,
               private router: Router,
               private userService: UserService,
+              private basketService: BasketService,
               private cookieService: CookieService) {
     this.loadCssFiles();
     this.loadScript(0);
@@ -81,6 +87,10 @@ export class WebsiteLayoutComponent {
   }
 
   ngOnInit() {
+    this.getBasket();
+    this.basketService.basketUpdatedEvent.subscribe(() => {
+      this.getBasket();
+    });
     this.userService.loginSucceedEvent.subscribe(data => {
       this.userData = data;
     });
@@ -92,6 +102,17 @@ export class WebsiteLayoutComponent {
     }
   }
 
+
+  private getBasket() {
+    this.basket = this.basketService.getBasket();
+    this.updateTotals();
+  }
+
+  private updateTotals() {
+    this.totalItem = this.basket.length;
+    this.totalPrice = this.basket.reduce((totalPrice, item) => totalPrice + (item.price * item.count), 0);
+  }
+
   search() {
     const queryParams = {searchParam: this.searchQuery};
     this.router.navigate(['/product-list'], {queryParams});
@@ -99,5 +120,10 @@ export class WebsiteLayoutComponent {
 
   logout() {
     this.userService.logout();
+  }
+
+  protected readonly toArray = toArray;
+  deductFromBasket(productId: number) {
+    this.basketService.removeProductFromBasket(productId);
   }
 }

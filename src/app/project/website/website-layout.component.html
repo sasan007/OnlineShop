@@ -184,45 +184,27 @@
                     <div class="onhover-dropdown header-badge">
                       <button type="button" class="btn p-0 position-relative header-wishlist">
                         <i data-feather="shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge">2
+                        <span class="position-absolute top-0 start-100 translate-middle badge">{{totalItem}}
                                                     <span class="visually-hidden">پیام های خوانده نشده</span>
                                                 </span>
                       </button>
 
                       <div class="onhover-div">
                         <ul class="cart-list">
-                          <li class="product-box-contain">
+                          <li class="product-box-contain" *ngFor="let basketItem of basket;">
                             <div class="drop-cart">
                               <a href="product-left.html" class="drop-image">
-                                <img src="../../assets/images/vegetable/product/1.png"
+                                <img [src]="basketItem.pic"
                                      class="blur-up lazyload" alt="">
                               </a>
 
                               <div class="drop-contain">
                                 <a href="product-left.html">
-                                  <h5>شکلات قهوه ای فرانسوی بسته بندی 2 عددی</h5>
+                                  <h5>{{basketItem.productName}}</h5>
                                 </a>
-                                <h6><span>1 x</span> 80.000 تومان</h6>
-                                <button class="close-button close_button">
-                                  <i class="fa-solid fa-xmark"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li class="product-box-contain">
-                            <div class="drop-cart">
-                              <a href="product-left.html" class="drop-image">
-                                <img src="../../assets/images/vegetable/product/2.png"
-                                     class="blur-up lazyload" alt="">
-                              </a>
-
-                              <div class="drop-contain">
-                                <a href="product-left.html">
-                                  <h5>بیسکویت کره بادام زمینی پرمیوم کره 600 گرم</h5>
-                                </a>
-                                <h6><span>1 x</span> 25.000 تومان</h6>
-                                <button class="close-button close_button">
+                                <h6><span>{{basketItem.count}} x</span> {{basketItem.price}} تومان</h6>
+                                <!-- TODO: Motion should be work correct -->
+                                <button class="close-button close_button" (click)="deductFromBasket(basketItem.productId)">
                                   <i class="fa-solid fa-xmark"></i>
                                 </button>
                               </div>
@@ -232,7 +214,7 @@
 
                         <div class="price-box">
                           <h5>جمع کل :</h5>
-                          <h4 class="theme-color fw-bold">103.000 تومان</h4>
+                          <h4 class="theme-color fw-bold">{{totalPrice}} تومان</h4>
                         </div>
 
                         <div class="button-group">
